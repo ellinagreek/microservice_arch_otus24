@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-dp
+  labels:
+    app: my-app-dp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      env: test
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+      - name: my-app
+        image: ellinagreek/my-app:v1
+        ports:
+        - containerPort: 8000      
